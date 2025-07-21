@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: fit-content;
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  gap: 2px;
+}
+.grid-item {
+  background: #ffd930;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}

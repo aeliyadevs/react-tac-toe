@@ -1,19 +1,39 @@
 import "./App.css";
+import Board from "./Board";
 
 function App() {
   return (
-    <div className="container">
-      <div className="grid">
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-        <div className="grid-item">o</div>
-      </div>
+    <div className="wrapper">
+      {/* <div className="grid">
+        <div className="grid-item">
+          <img src="./circle.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./x.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./circle.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./x.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./circle.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./x.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./circle.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./x.svg" />
+        </div>
+        <div className="grid-item">
+          <img src="./circle.svg" />
+        </div>
+      </div> */}
+      <Board />
     </div>
   );
 }

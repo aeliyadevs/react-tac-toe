@@ -5,9 +5,9 @@ function Board() {
     <div className="grid">
       <Cell image="./circle.svg" />
       <Cell image="./x.svg" />
-      <Cell image="./vite.svg" />
+      <Cell image="./circle.svg" />
       <Cell image="./x.svg" />
-      <Cell image="./vite.svg" />
+      <Cell image="./circle.svg" />
       <Cell image="./x.svg" />
       <Cell image="./x.svg" />
       <Cell image="./x.svg" />

@@ -31,3 +31,14 @@
 .grid-item img {
   width: 40px;
 }
+button {
+  padding: 15px;
+  border: none;
+  background: greenyellow;
+  /* color: white; */
+  margin-top: 15px;
+}
+.counter {
+  text-align: center;
+  font-size: 3rem;
+}

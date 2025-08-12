@@ -1,27 +1,31 @@
 import { useState } from "react";
 
 function Cell(props) {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState("-");
   // const [isPlayed, setIsPlayed] = useState(false);
-  const [notPlayed, setNotPlayed] = useState(true);
-  let x = 10;
-  console.log(props.activePlayer);
+  const [notMarked, setNotMarked] = useState(true);
 
   function setImageSymbol() {
-    if (notPlayed) {
+    if (notMarked) {
       if (props.activePlayer == 1) {
         setImage("./circle.svg");
         props.changeActivePlayer(2);
+        props.updateBoard("O");
       } else {
         setImage("./x.svg");
         props.changeActivePlayer(1);
+        props.updateBoard("X");
       }
-      setNotPlayed(false);
+      setNotMarked(false);
     }
   }
   return (
     <div className="cell" onClick={setImageSymbol}>
-      <img src={image} />
+      <img src={image} className="symbol" />
+      {/* <span className="cell-address">
+        {props.row}x{props.col}
+      </span> */}
+      <span className="cell-address">{props.cellName}</span>
     </div>
   );
 }

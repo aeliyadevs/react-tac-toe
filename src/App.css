@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .grid-item {
   background: #ffd930;
@@ -41,4 +42,14 @@ button {
 .counter {
   text-align: center;
   font-size: 3rem;
+}
+.symbol {
+  width: 80px;
+}
+.cell-address {
+  position: absolute;
+  bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
 }

@@ -10,11 +10,11 @@ function Cell(props) {
       if (props.activePlayer == 1) {
         setImage("./circle.svg");
         props.changeActivePlayer(2);
-        props.updateBoard("O");
+        props.updateBoard(props.cellNum, "O");
       } else {
         setImage("./x.svg");
         props.changeActivePlayer(1);
-        props.updateBoard("X");
+        props.updateBoard(props.cellNum, "X");
       }
       setNotMarked(false);
     }
@@ -25,7 +25,7 @@ function Cell(props) {
       {/* <span className="cell-address">
         {props.row}x{props.col}
       </span> */}
-      <span className="cell-address">{props.cellName}</span>
+      <span className="cell-address">{props.cellNum + 1}</span>
     </div>
   );
 }

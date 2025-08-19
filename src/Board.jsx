@@ -43,6 +43,7 @@ function Board() {
 
   function changePlayer(newPlayer) {
     setPlayer(newPlayer);
+    // player = newPlayer;
     // if (player == 1) {
     //   setPlayer(2);
     // } else {
@@ -50,8 +51,11 @@ function Board() {
     // }
   }
 
-  function updateBoardState(symbol) {
+  function updateBoardState(cellNum, symbol) {
     // blank
+    let newBoardState = Array.from(boardState);
+    newBoardState[cellNum] = symbol;
+    setBoardState(newBoardState);
   }
 
   return (
@@ -61,7 +65,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={0}
         col={0}
-        cellName={1}
+        cellNum={0}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -69,7 +73,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={0}
         col={1}
-        cellName={2}
+        cellNum={1}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -77,7 +81,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={0}
         col={2}
-        cellName={3}
+        cellNum={2}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -85,7 +89,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={1}
         col={0}
-        cellName={4}
+        cellNum={3}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -93,7 +97,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={1}
         col={1}
-        cellName={5}
+        cellNum={4}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -101,7 +105,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={1}
         col={2}
-        cellName={6}
+        cellNum={5}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -109,7 +113,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={2}
         col={0}
-        cellName={7}
+        cellNum={6}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -117,7 +121,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={2}
         col={1}
-        cellName={8}
+        cellNum={7}
         updateBoard={updateBoardState}
       />
       <Cell
@@ -125,7 +129,7 @@ function Board() {
         changeActivePlayer={changePlayer}
         row={2}
         col={2}
-        cellName={9}
+        cellNum={8}
         updateBoard={updateBoardState}
       />
     </div>

@@ -1,28 +1,27 @@
 import { useEffect, useState } from "react";
+import "animate.css";
 
 function Cell(props) {
-  const [image, setImage] = useState("-");
-  // const [isPlayed, setIsPlayed] = useState(false);
+  const [image, setImage] = useState(null);
   const [notMarked, setNotMarked] = useState(true);
 
   useEffect(() => {
     if (props.reset) {
-      setImage("-");
+      setImage(null);
       setNotMarked(true);
       props.resetCallback();
     }
   }, [props.reset]);
 
   function setImageSymbol() {
-    console.log("clicked cell");
     if (notMarked) {
-      if (props.activePlayer == 1) {
+      if (props.activePlayer === "Player 1") {
         setImage("./circle.svg");
-        props.changeActivePlayer(2);
+        props.changeActivePlayer("Player 2");
         props.updateBoard(props.cellNum, "O");
       } else {
         setImage("./x.svg");
-        props.changeActivePlayer(1);
+        props.changeActivePlayer("Player 1");
         props.updateBoard(props.cellNum, "X");
       }
       setNotMarked(false);
@@ -30,11 +29,9 @@ function Cell(props) {
   }
   return (
     <div className="cell" onClick={setImageSymbol}>
-      <img src={image} className="symbol" />
-      {/* <span className="cell-address">
-        {props.row}x{props.col}
-      </span> */}
-      <span className="cell-address">{props.cellNum + 1}</span>
+      {image && (
+        <img src={image} className="symbol animate__animated animate__zoomIn" />
+      )}
     </div>
   );
 }

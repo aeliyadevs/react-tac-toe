@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Cell(props) {
   const [image, setImage] = useState("-");
   // const [isPlayed, setIsPlayed] = useState(false);
   const [notMarked, setNotMarked] = useState(true);
 
+  useEffect(() => {
+    if (props.reset) {
+      setImage("-");
+      setNotMarked(true);
+      props.resetCallback();
+    }
+  }, [props.reset]);
+
   function setImageSymbol() {
+    console.log("clicked cell");
     if (notMarked) {
       if (props.activePlayer == 1) {
         setImage("./circle.svg");

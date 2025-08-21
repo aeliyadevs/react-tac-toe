@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cell from "./Cell";
 
 function Board() {
   const [player, setPlayer] = useState(1);
   const [symbol, setSymbol] = useState("circle");
+  const [reset, setReset] = useState(false);
   const [boardState, setBoardState] = useState([
     null,
     null,
@@ -56,83 +57,121 @@ function Board() {
     let newBoardState = Array.from(boardState);
     newBoardState[cellNum] = symbol;
     setBoardState(newBoardState);
+    // decideWinner();
   }
 
+  function restartGame() {
+    setBoardState([null, null, null, null, null, null, null, null, null]);
+    setPlayer(1);
+    setReset(true);
+  }
+
+  function resetCallback() {
+    setReset(false);
+  }
+
+  useEffect(() => {
+    decideWinner();
+  }, [boardState]);
+
   return (
-    <div className="grid">
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={0}
-        col={0}
-        cellNum={0}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={0}
-        col={1}
-        cellNum={1}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={0}
-        col={2}
-        cellNum={2}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={1}
-        col={0}
-        cellNum={3}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={1}
-        col={1}
-        cellNum={4}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={1}
-        col={2}
-        cellNum={5}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={2}
-        col={0}
-        cellNum={6}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={2}
-        col={1}
-        cellNum={7}
-        updateBoard={updateBoardState}
-      />
-      <Cell
-        activePlayer={player}
-        changeActivePlayer={changePlayer}
-        row={2}
-        col={2}
-        cellNum={8}
-        updateBoard={updateBoardState}
-      />
-    </div>
+    <>
+      <div className="grid">
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={0}
+          col={0}
+          cellNum={0}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={0}
+          col={1}
+          cellNum={1}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={0}
+          col={2}
+          cellNum={2}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={1}
+          col={0}
+          cellNum={3}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={1}
+          col={1}
+          cellNum={4}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={1}
+          col={2}
+          cellNum={5}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={2}
+          col={0}
+          cellNum={6}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={2}
+          col={1}
+          cellNum={7}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+        <Cell
+          activePlayer={player}
+          changeActivePlayer={changePlayer}
+          row={2}
+          col={2}
+          cellNum={8}
+          updateBoard={updateBoardState}
+          reset={reset}
+          resetCallback={resetCallback}
+        />
+      </div>
+      <div>
+        <button onClick={restartGame}>Restart Game</button>
+      </div>
+    </>
   );
 }
 export default Board;

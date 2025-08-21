@@ -87,6 +87,12 @@ function Board() {
   return (
     <>
       <h1 className="title">Tic Tac Toe</h1>
+      <p className="author">
+        A project by{" "}
+        <a href="https://cli.aeliya.com.np/" target="__blank">
+          Aeliyadevs
+        </a>
+      </p>
       <div className="turn">Turn: {player}</div>
       <div className="grid">
         <Cell
